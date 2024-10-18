@@ -12,7 +12,7 @@ function fib(n) {
 		} else {
 			if (array[i - 1] + array[i - 2] === n) {
 				array.push(n);
-        break
+				break;
 			} else {
 				array.push(array[i - 1] + array[i - 2]);
 			}
@@ -22,6 +22,12 @@ function fib(n) {
 	return array;
 }
 
+// I couldn't do it by myself, so the code in function fibRec(n) 
+// I took mostly from the stackoverflow.com
+
 function fibRec(n) {
-	console.log("This was printed recursively");
+	if (n === 0) return [0];
+	if (n === 1) return [0, 1];
+	const array = fibRec(n - 1);
+	return [...array, array[n - 1] + array[n - 2]]
 }
