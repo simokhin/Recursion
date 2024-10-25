@@ -32,7 +32,7 @@ function fibRec(n) {
 	return [...array, array[n - 1] + array[n - 2]];
 }
 
-// I couldn't write the ""mergeSort" function myself, so I looked at the solution here
+// I couldn't write the "mergeSort" function myself, so I looked at the solution here
 // https://www.youtube.com/watch?v=wXZyuJqNk9U&t=3s
 
 function mergeSort(arr) {
