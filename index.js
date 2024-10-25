@@ -22,12 +22,41 @@ function fib(n) {
 	return array;
 }
 
-// I couldn't do it by myself, so the code in function fibRec(n) 
+// I couldn't do it by myself, so the code in function fibRec(n)
 // I took mostly from the stackoverflow.com
 
 function fibRec(n) {
 	if (n === 0) return [0];
 	if (n === 1) return [0, 1];
 	const array = fibRec(n - 1);
-	return [...array, array[n - 1] + array[n - 2]]
+	return [...array, array[n - 1] + array[n - 2]];
+}
+
+// I couldn't write the ""mergeSort" function myself, so I looked at the solution here
+// https://www.youtube.com/watch?v=wXZyuJqNk9U&t=3s
+
+function mergeSort(arr) {
+	if (arr.length < 2) {
+		return arr;
+	}
+
+	const mid = Math.floor(arr.length / 2);
+	const leftArr = arr.slice(0, mid);
+	const rightArr = arr.slice(mid);
+
+	return merge(mergeSort(leftArr), mergeSort(rightArr));
+}
+
+function merge(leftArr, rightArr) {
+	const sortedArr = [];
+
+	while (leftArr.length && rightArr.length) {
+		if (leftArr[0] <= rightArr[0]) {
+			sortedArr.push(leftArr.shift());
+		} else {
+			sortedArr.push(rightArr.shift());
+		}
+	}
+
+	return [...sortedArr, ...leftArr, ...rightArr];
 }
